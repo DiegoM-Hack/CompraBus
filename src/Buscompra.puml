@@ -1,0 +1,83 @@
+@startuml
+
+package sistema {
+
+class Pasajero {
+  - nombre : String
+  - cedula : String
+  - correo : String
+  + getNombre() : String
+  + getCedula() : String
+  + getCorreo() : String
+  + setNombre(nombre: String) : void
+  + setCedula(cedula: String) : void
+  + setCorreo(correo: String) : void
+}
+
+class Ruta {
+  - origen : String
+  - destino : String
+  - horaSalida : String
+  - duracionHoras : double
+  - precioBase : double
+  + getOrigen() : String
+  + getDestino() : String
+  + getHoraSalida() : String
+  + getDuracionHoras() : double
+  + getPrecioBase() : double
+  + setOrigen(String) : void
+  + setDestino(String) : void
+  + setHoraSalida(String) : void
+  + setDuracionHoras(double) : void
+  + setPrecioBase(double) : void
+}
+
+class Servicio {
+  - nombre : String
+  - costo : double
+  + getNombre() : String
+  + getCosto() : double
+}
+
+abstract class Ticket {
+  # pasajero : Pasajero
+  # ruta : Ruta
+  # serviciosAdicionales : List<Servicio>
+  + calcularPrecioTotal() : double
+  + mostrarDetalles() : void
+  + getPasajero() : Pasajero
+  + setRuta(Ruta) : void
+}
+
+class Normal extends Ticket {
+  - maletaAdicional : boolean
+  + calcularPrecioTotal() : double
+}
+
+class VIP extends Ticket {
+  - maletaAdicional : boolean
+  + calcularPrecioTotal() : double
+}
+
+class SistemaReservas {
+  - tickets : List<Ticket>
+  + comprarTicket(List<Ruta>) : void
+  + mostrarTickets() : void
+  + actualizarTicket(List<Ruta>) : void
+}
+
+class Main {
+  + main(String[]) : void
+}
+
+Pasajero --> Ticket
+Ruta --> Ticket
+Servicio --> Ticket
+Ticket <|-- Normal
+Ticket <|-- VIP
+Main --> SistemaReservas
+SistemaReservas --> Ticket
+
+}
+
+@enduml

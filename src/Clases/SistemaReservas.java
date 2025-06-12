@@ -64,11 +64,11 @@ public class SistemaReservas {
             }
         }
     }
-
+/*
     public static void actualizarTicket(List<Ruta> rutasDisponibles) {
         System.out.print("Ingrese la cédula del pasajero a actualizar: ");
-        String cedula = scanner.nextLine();
-
+        String cedula = scanner.nextLine().trim();
+        // Recorre la lsita de tickets
         for (Ticket t : tickets) {
             if (t.getPasajero().getCedula().equals(cedula)) {
                 System.out.println("Seleccione nueva ruta:");
@@ -85,5 +85,7 @@ public class SistemaReservas {
             }
         }
         System.out.println("Pasajero no encontrado.");
-    }
+        }
+ */
+
 }

@@ -8,7 +8,6 @@ public class Pasajero {
 
     public Pasajero(String nombre, String destino, String cedula) {
         this.nombre = nombre;
-        //this.apellido = apellido;
         this.destino = destino;
         this.cedula = cedula;
     }
